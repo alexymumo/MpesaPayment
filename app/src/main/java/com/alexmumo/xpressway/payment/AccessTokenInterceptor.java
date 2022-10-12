@@ -20,7 +20,8 @@ public class AccessTokenInterceptor implements Interceptor {
         String keys = BuildConfig.CONSUMER_KEY + ":" + BuildConfig.CONSUMER_SECRET;
         Request request = chain.request();
         Request newRequest = request.newBuilder()
-                .addHeader("Authorization", "Basic" + Base64.encodeToString(keys.getBytes(), Base64.NO_WRAP))
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Authorization", "Bearer" + Base64.encodeToString(keys.getBytes(), Base64.NO_WRAP))
                 .build();
         return chain.proceed(newRequest);
     }

@@ -7,6 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.TripDetailActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/entrance_card"
         android:layout_marginTop="30dp"
@@ -90,6 +94,46 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvClass"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvDistance"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Distance"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/teal_700"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvDefinition"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <TextView
+                android:id="@+id/tvAmount"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Distance"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/teal_700"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvDistance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:id="@+id/paymentBtn"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:text="Continue to Payment"
+        android:backgroundTint="@color/teal_700"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
