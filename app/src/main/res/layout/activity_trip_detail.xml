@@ -7,7 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.TripDetailActivity">
 
+
     <TextView
+        android:text="My Trip"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
+        android:textSize="30sp"
+        android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -26,18 +33,6 @@
             android:layout_height="wrap_content"
             android:padding="10dp">
 
-            <TextView
-                android:id="@+id/tvDetails"
-                android:layout_marginStart="20dp"
-                android:text="Trip Details"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/teal_700"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/tvEntrance"
@@ -49,7 +44,6 @@
                 android:textColor="@color/teal_700"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/tvDetails"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
@@ -114,7 +108,7 @@
                 android:id="@+id/tvAmount"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="Distance"
+                android:text="Amount"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/teal_700"

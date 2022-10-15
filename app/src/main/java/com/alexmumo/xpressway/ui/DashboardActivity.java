@@ -37,9 +37,9 @@ public class DashboardActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("Drivers").child(firebaseUser.getUid());
 
 
-        usernameTextView = findViewById(R.id.tvUsername);
+        // usernameTextView = findViewById(R.id.tvUsername);
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        /*databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Driver driver = snapshot.getValue(Driver.class);
@@ -50,6 +50,7 @@ public class DashboardActivity extends AppCompatActivity {
 
             }
         });
+         */
 
         cardViewTrip = findViewById(R.id.cardViewPay);
 

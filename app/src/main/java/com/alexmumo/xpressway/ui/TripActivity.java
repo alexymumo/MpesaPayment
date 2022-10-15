@@ -153,7 +153,7 @@ public class TripActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         databaseReference.child(tripId).setValue(trip);
                         Toast.makeText(TripActivity.this, "Trip Saved", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(TripActivity.this, PaymentActivity.class);
+                        Intent intent = new Intent(TripActivity.this, TripDetailActivity.class);
                         startActivity(intent);
                     }
                     @Override

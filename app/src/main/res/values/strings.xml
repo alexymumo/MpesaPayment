@@ -22,9 +22,10 @@
     <string name="amount">Amount</string>
     <string name="pay_here">Pay Here</string>
     <string name="phone">Phone</string>
+    <string name="my_dashboard">My Dashboard</string>
 
     <string-array name="entrance_array">
-        <item>MLOLONGO</item>
+        <item>MLOLONGO </item>
         <item>SYOKIMAU</item>
         <item>SGR</item>
         <item>JKIA</item>
