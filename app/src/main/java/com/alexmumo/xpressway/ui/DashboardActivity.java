@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.alexmumo.xpressway.R;
+import com.alexmumo.xpressway.distance.DistanceFragment;
 import com.alexmumo.xpressway.models.Driver;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -20,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class DashboardActivity extends AppCompatActivity {
-    private CardView cardViewProfile, cardViewTrip, cardViewHistory;
+    private CardView cardViewProfile, cardViewTrip, cardViewHistory, cardViewLocation;
     private TextView usernameTextView;
     private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
@@ -52,10 +53,19 @@ public class DashboardActivity extends AppCompatActivity {
         });
          */
 
+        cardViewLocation = findViewById(R.id.locationCardView);
         cardViewTrip = findViewById(R.id.cardViewPay);
 
         // Profile CardView
         cardViewProfile = findViewById(R.id.cardView2);
+
+        cardViewLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, DistanceFragment.class);
+                startActivity(intent);
+            }
+        });
 
         cardViewProfile.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -32,6 +32,8 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import com.alexmumo.xpressway.R;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
@@ -54,7 +56,7 @@ public class DistanceFragment extends FragmentActivity implements OnMapReadyCall
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.fragment_distance);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -162,7 +164,7 @@ public class DistanceFragment extends FragmentActivity implements OnMapReadyCall
 
                     polylineDistance = calculatePolylineDistance(firstLocation, secondLocation);
 
-                    Toast.makeText(MapsActivity.this, "Distance: " + String.format("%.3f", polylineDistance) + "km", Toast.LENGTH_LONG).show();
+                    Toast.makeText(DistanceFragment.this, "Distance: " + String.format("%.3f", polylineDistance) + "km", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -296,7 +298,7 @@ public class DistanceFragment extends FragmentActivity implements OnMapReadyCall
 
         if (svLocationOne.getQuery().toString().trim().equals("") || svLocationTwo.getQuery().toString().trim().equals(""))
         {
-            Toast.makeText(MapsActivity.this, "location and destination are required", Toast.LENGTH_LONG).show();
+            Toast.makeText(DistanceFragment.this, "location and destination are required", Toast.LENGTH_LONG).show();
             queryPresent = false;
         } else
         {
@@ -324,7 +326,7 @@ public class DistanceFragment extends FragmentActivity implements OnMapReadyCall
         public void run()
         {
             //Geocoding translates an address or other identifier into a lat and long. Reverse geocoding takes a lat and long and translates it to an address
-            Geocoder geocoder = new Geocoder(MapsActivity.this);
+            Geocoder geocoder = new Geocoder(DistanceFragment.this);
             try
             {
                 List<Address> addressList = null;
@@ -361,7 +363,7 @@ public class DistanceFragment extends FragmentActivity implements OnMapReadyCall
                 {
                     runOnUiThread(() ->
                     {
-                        Toast.makeText(MapsActivity.this, "Location not found", Toast.LENGTH_LONG).show();
+                        Toast.makeText(DistanceFragment.this, "Location not found", Toast.LENGTH_LONG).show();
                     });
                 }
             } catch (IOException ex)
@@ -415,7 +417,7 @@ public class DistanceFragment extends FragmentActivity implements OnMapReadyCall
             @Override
             public void onPolylineClick(Polyline polyline)
             {
-                Toast.makeText(MapsActivity.this, "Distance: " + String.format("%.3f", polylineDistance) + "km", Toast.LENGTH_LONG).show();
+                Toast.makeText(DistanceFragment.this, "Distance: " + String.format("%.3f", polylineDistance) + "km", Toast.LENGTH_LONG).show();
             }
         });
     }
