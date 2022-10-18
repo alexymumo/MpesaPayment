@@ -139,6 +139,7 @@
 
         <!--fourth card-->
         <androidx.cardview.widget.CardView
+            android:id="@+id/logBookCardView"
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
@@ -161,10 +162,10 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_car"/>
+                    android:src="@drawable/ic_lock"/>
 
                 <TextView
-                    android:text="@string/home"
+                    android:text="LogBook"
                     android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

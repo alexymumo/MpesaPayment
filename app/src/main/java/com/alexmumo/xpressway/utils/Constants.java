@@ -14,4 +14,6 @@ public class Constants {
     public static final String TRANSACTION_TYPE = "CustomerPayBillOnline";
     public static final String PARTYB = "174379";
     public static final String CALLBACKURL = "https://mydomain.com/path";
+    public static final String STORAGE_PATH_UPLOADS = "numberplates/";
+    public static final String DATABASE_PATH_UPLOADS = "numberplates";
 }
