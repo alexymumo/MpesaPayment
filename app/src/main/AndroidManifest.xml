@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -15,6 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XpressWay"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.DistanceActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".ui.LogbookActivity"
             android:exported="false">
@@ -33,17 +41,10 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
-        <activity
-            android:name=".distance.DistanceFragment"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value="AIzaSyBMbtpn01R6KkflLk1zTNWt6Qzr6eFLLqw" />
 
         <activity
             android:name=".ui.TripDetailActivity"

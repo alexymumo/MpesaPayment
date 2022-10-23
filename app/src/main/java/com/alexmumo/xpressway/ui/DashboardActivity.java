@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.alexmumo.xpressway.R;
-import com.alexmumo.xpressway.distance.DistanceFragment;
 import com.alexmumo.xpressway.ui.LogbookActivity;
 import com.alexmumo.xpressway.models.Driver;
 import com.google.firebase.auth.FirebaseAuth;
@@ -71,7 +70,7 @@ public class DashboardActivity extends AppCompatActivity {
         cardViewLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DashboardActivity.this, DistanceFragment.class);
+                Intent intent = new Intent(DashboardActivity.this, DistanceActivity.class);
                 startActivity(intent);
             }
         });

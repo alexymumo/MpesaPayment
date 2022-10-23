@@ -1,7 +1,6 @@
 package com.alexmumo.xpressway.ui;
 
 import com.alexmumo.xpressway.R;
-import com.alexmumo.xpressway.distance.DistanceFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -154,7 +153,7 @@ public class TripActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         databaseReference.child(tripId).setValue(trip);
                         Toast.makeText(TripActivity.this, "Trip Saved", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(TripActivity.this, DistanceFragment.class);
+                        Intent intent = new Intent(TripActivity.this, DistanceActivity.class);
                         startActivity(intent);
                     }
                     @Override
