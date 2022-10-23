@@ -66,7 +66,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class DistanceActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class DistanceActivity extends AppCompatActivity implements OnMapReadyCallback{
 
     private GoogleMap googleMap;
     Location location;
