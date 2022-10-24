@@ -45,6 +45,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:21.0.0'
     implementation 'com.google.android.gms:play-services-places:17.0.0'
     implementation 'com.google.maps:google-maps-services:0.18.0'
+    implementation 'com.akexorcist:google-direction-library:1.2.1'
 
     // Storage
     implementation 'com.google.firebase:firebase-storage:20.0.2'
