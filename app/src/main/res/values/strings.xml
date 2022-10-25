@@ -30,6 +30,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Tap two locations in the map</string>
     <string name="str_tv_distance_time">Distance</string>
+    <string name="continue_to_trip_detail">Continue To Trip Detail</string>
 
     <string-array name="entrance_array">
         <item>MLOLONGO </item>

@@ -4,8 +4,12 @@ import com.akexorcist.googledirection.GoogleDirection;
 import com.akexorcist.googledirection.constant.TransportMode;
 import com.alexmumo.xpressway.R;
 
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,11 +43,26 @@ public class DistanceActivity extends AppCompatActivity implements OnMapReadyCal
     private FusedLocationProviderClient fusedLocationProviderClient;
     Marker entryMarker, exitMarker;
     private DatabaseReference databaseReference;
+    TextView distanceText;
+    private Button continueButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_distance);
+        distanceText = findViewById(R.id.tvDistance);
+        continueButton = findViewById(R.id.continueButton);
+
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String distance = distanceText.getText().toString();
+                Intent intent = new Intent(DistanceActivity.this, TripDetailActivity.class);
+                intent.putExtra("distance", distance);
+                startActivity(intent);
+            }
+        });
 
         googleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -67,6 +86,10 @@ public class DistanceActivity extends AppCompatActivity implements OnMapReadyCal
 
         double entrylatitude = -1.3340096;
         double entrylongitude = 36.8379499;
+
+        //-1.3330374,36.8533269
+        //-1.3464533,36.7504017
+
         double exitlatitude  = -1.2998277;
         double exitlongitude = 36.7607878;
         // Add a marker in Sydney and move the camera
@@ -83,6 +106,7 @@ public class DistanceActivity extends AppCompatActivity implements OnMapReadyCal
         float distance = results[0];
 
         int kilometres = (int) (distance/1000);
+        distanceText.setText("Distance: " + kilometres + "km");
         Toast.makeText(this, String.valueOf(kilometres)+ "Kilometres", Toast.LENGTH_LONG).show();
 
     }

@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,7 +23,7 @@ public class TripDetailActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
     private Button paymentBtn;
-    private TextView amount, exit, entrance, vehicleClass, distance, vehicleDefinition;
+    TextView amount, exit, entrance, vehicleClass, distance, vehicleDefinition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,20 @@ public class TripDetailActivity extends AppCompatActivity {
         entrance = findViewById(R.id.tvEntrance);
         vehicleClass = findViewById(R.id.tvClass);
         vehicleDefinition = findViewById(R.id.tvDefinition);
+        distance = findViewById(R.id.tvDistance);
 
 
+
+        Intent intent = getIntent();
+        String distanceStr = intent.getStringExtra("distance");
+        distance.setText(distanceStr);
+
+        /*
+        double distanceInKm = Double.parseDouble(distanceStr);
+        double amountDouble = distanceInKm * 50;
+        String amountStr = String.valueOf(amountDouble);
+        amount.setText(amountStr + "Ksh");
+         */
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("Trips").child(firebaseUser.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -47,6 +60,7 @@ public class TripDetailActivity extends AppCompatActivity {
                 entrance.setText(trip.getEntrance());
                 vehicleClass.setText(trip.getVehicle_class());
                 vehicleDefinition.setText(trip.getVehicle_definition());
+                //double distanceInKm = Double.parseDouble(distance);
             }
 
             @Override
