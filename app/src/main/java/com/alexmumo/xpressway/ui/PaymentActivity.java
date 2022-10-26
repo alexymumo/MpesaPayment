@@ -1,8 +1,10 @@
 package com.alexmumo.xpressway.ui;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +25,12 @@ import static com.alexmumo.xpressway.utils.Constants.PASSKEY;
 import com.alexmumo.xpressway.models.STKPush;
 import com.alexmumo.xpressway.network.MpesaApiClient;
 import com.alexmumo.xpressway.utils.Utils;
+
+import com.flutterwave.raveandroid.RaveConstants;
+import com.flutterwave.raveandroid.RavePayActivity;
+import com.flutterwave.raveandroid.RavePayManager;
 import com.google.android.material.textfield.TextInputEditText;
+
 
 public class PaymentActivity extends AppCompatActivity {
     private MpesaApiClient mpesaApiClient;
@@ -35,7 +42,55 @@ public class PaymentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+        pay = findViewById(R.id.pay);
 
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makePayment();
+            }
+        });
+    }
+    private void makePayment() {
+        new RavePayManager(this)
+                .setAmount(1)
+                .setCountry("KE")
+                .setCurrency("KES")
+                .setEmail("mungai@gmail.com")
+                .setfName("Mungai")
+                .setlName("Mungai")
+                .setNarration("Payment for xpressway")
+                .setPublicKey("FLWPUBK_TEST-9e1e9b9e8b9b8e1e8b9b8e1e")
+                .setEncryptionKey("FLWSECK_TEST-9e1e9b9e8b9b8e1e8b9b8e1e")
+                .setTxRef(System.currentTimeMillis() + "Ref")
+                .acceptAccountPayments(true)
+                .acceptCardPayments(true)
+                .acceptMpesaPayments(true)
+                .onStagingEnv(true)
+                .allowSaveCardFeature(true)
+                .showStagingLabel(true)
+                .initialize();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RavePayManager.RAVE_REQUEST_CODE && data != null) {
+            String message = data.getStringExtra("response");
+            if (resultCode == RavePayManager.RESULT_SUCCESS) {
+                //Do something with the successful response
+            } else if (resultCode == RavePayManager.RESULT_ERROR) {
+                //Do something with the error response
+            } else if (resultCode == RavePayManager.RESULT_CANCELLED) {
+                //Do something when the user cancels the payment
+            }
+        }
+    }
+}
+
+
+
+        /*
         phone = findViewById(R.id.phone_text);
         amount = findViewById(R.id.amount_text);
         pay = findViewById(R.id.paybutton);
@@ -111,6 +166,4 @@ public class PaymentActivity extends AppCompatActivity {
             public void onFailure(Call<AccessToken> call, Throwable t) {
                 t.printStackTrace();
             }
-        });
-    }
-}
+        });*/

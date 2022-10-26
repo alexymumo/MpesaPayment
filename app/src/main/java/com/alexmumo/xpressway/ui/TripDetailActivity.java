@@ -14,6 +14,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -36,18 +37,32 @@ public class TripDetailActivity extends AppCompatActivity {
         vehicleClass = findViewById(R.id.tvClass);
         vehicleDefinition = findViewById(R.id.tvDefinition);
         distance = findViewById(R.id.tvDistance);
+        paymentBtn = findViewById(R.id.paymentBtn);
 
 
 
         Intent intent = getIntent();
         String distanceStr = intent.getStringExtra("distance");
         distance.setText(distanceStr);
+        String amountStr = intent.getStringExtra("amount");
+        amount.setText(amountStr);
 
-        /*
-        double distanceInKm = Double.parseDouble(distanceStr);
-        double amountDouble = distanceInKm * 50;
-        String amountStr = String.valueOf(amountDouble);
-        amount.setText(amountStr + "Ksh");
+        paymentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TripDetailActivity.this, PaymentActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        /*paymentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TripDetailActivity.this, PaymentActivity.class);
+                startActivity(intent);
+            }
+        });
+
          */
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("Trips").child(firebaseUser.getUid());

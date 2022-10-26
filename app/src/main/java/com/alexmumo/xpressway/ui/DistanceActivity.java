@@ -43,7 +43,7 @@ public class DistanceActivity extends AppCompatActivity implements OnMapReadyCal
     private FusedLocationProviderClient fusedLocationProviderClient;
     Marker entryMarker, exitMarker;
     private DatabaseReference databaseReference;
-    TextView distanceText;
+    TextView distanceText, amountText;
     private Button continueButton;
 
     @Override
@@ -52,6 +52,7 @@ public class DistanceActivity extends AppCompatActivity implements OnMapReadyCal
         setContentView(R.layout.activity_distance);
         distanceText = findViewById(R.id.tvDistance);
         continueButton = findViewById(R.id.continueButton);
+        amountText = findViewById(R.id.tvAmount);
 
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +61,7 @@ public class DistanceActivity extends AppCompatActivity implements OnMapReadyCal
                 String distance = distanceText.getText().toString();
                 Intent intent = new Intent(DistanceActivity.this, TripDetailActivity.class);
                 intent.putExtra("distance", distance);
+                intent.putExtra("amount", amountText.getText().toString());
                 startActivity(intent);
             }
         });
@@ -84,14 +86,13 @@ public class DistanceActivity extends AppCompatActivity implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        double entrylatitude = -1.3340096;
-        double entrylongitude = 36.8379499;
+        //-1.341575,36.8663941
+        double entrylatitude = -1.341575;
+        double entrylongitude = 36.8663941;
 
-        //-1.3330374,36.8533269
-        //-1.3464533,36.7504017
-
-        double exitlatitude  = -1.2998277;
-        double exitlongitude = 36.7607878;
+        //-1.3729576,36.9180749
+        double exitlatitude  = -1.3729576;
+        double exitlongitude = 36.9180749;
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(entrylatitude, entrylongitude);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Entry"));
@@ -106,8 +107,11 @@ public class DistanceActivity extends AppCompatActivity implements OnMapReadyCal
         float distance = results[0];
 
         int kilometres = (int) (distance/1000);
+        int amount = kilometres * 10;
         distanceText.setText("Distance: " + kilometres + "km");
-        Toast.makeText(this, String.valueOf(kilometres)+ "Kilometres", Toast.LENGTH_LONG).show();
+        amountText.setText("Amount: Ksh. " + amount);
+        //Toast.makeText(this, "Amount: " + amount + "Sh", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, String.valueOf(kilometres)+ "Kilometres", Toast.LENGTH_LONG).show();
 
     }
 
