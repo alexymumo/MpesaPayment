@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class DashboardActivity extends AppCompatActivity {
-    private CardView cardViewProfile, cardViewTrip, cardViewHistory, cardViewLocation,logBookCardView, logoutCardView;
+    private CardView cardViewProfile, cardViewTrip, cardViewHistory, cardViewLocation,logBookCardView, logoutCardView, cardViewComplains;
     private TextView usernameTextView;
     private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
@@ -43,6 +43,14 @@ public class DashboardActivity extends AppCompatActivity {
         cardViewTrip = findViewById(R.id.cardViewPay);
         logoutCardView = findViewById(R.id.cardViewLogout);
         cardViewProfile = findViewById(R.id.cardView2);
+        cardViewComplains = findViewById(R.id.cardViewComplains);
+
+        cardViewComplains.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardActivity.this, ReportComplainActivity.class));
+            }
+        });
 
         // Logout cardview
         logoutCardView.setOnClickListener(new View.OnClickListener() {

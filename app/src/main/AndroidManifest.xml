@@ -17,6 +17,34 @@
         android:theme="@style/Theme.XpressWay"
         tools:targetApi="31">
         <activity
+            android:name=".UsersActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.ReportComplainActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.ComplainsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.AdminActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.DistanceActivity"
             android:exported="false">
             <meta-data
@@ -42,10 +70,9 @@
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
              AIzaSyBMbtpn01R6KkflLk1zTNWt6Qzr6eFLLqw
         -->
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}"/>
+            android:value="${MAPS_API_KEY}" />
 
         <activity
             android:name=".ui.TripDetailActivity"
