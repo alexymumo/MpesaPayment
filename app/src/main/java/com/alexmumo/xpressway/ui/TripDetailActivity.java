@@ -51,6 +51,7 @@ public class TripDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TripDetailActivity.this, PaymentActivity.class);
+                intent.putExtra("amount",amountStr);
                 startActivity(intent);
             }
         });

@@ -27,7 +27,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class PaymentActivity extends AppCompatActivity{
-    private EditText phone;
+    //private EditText phone;
+    private TextInputEditText phone, amount;
     private Button pay;
     Daraja daraja;
     String phoneNumber;
@@ -35,8 +36,15 @@ public class PaymentActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+        amount = findViewById(R.id.amount);
+
         phone = findViewById(R.id.phone);
-        pay = findViewById(R.id.pay);
+        pay = findViewById(R.id.pay_btn);
+
+
+        Intent intent = getIntent();
+        String amountStr = intent.getStringExtra("amount");
+        amount.setText(amountStr);
 
         daraja = Daraja.with("kgfUVwVoALb45cnt6t1XmC7oQHHYaftK", "Ju041jMYxbs57OIi", new DarajaListener<AccessToken>() {
             @Override
