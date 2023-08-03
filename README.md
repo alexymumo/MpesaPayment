@@ -3,15 +3,16 @@
 
 ## Prerequisite
 - Android Studio
-- API-KEY - CONSUMER KEY, CONSUMER SECRET
+- API-KEY -> CONSUMER KEY, CONSUMER SECRET
 
 ## Tech stack
 - Java
 - XML
-- Retrofit
+- Retrofit - network calls
 - Okhttp3
 - GSON
 - Okhttp Logging interceptor
 
 ## Demo
+- Detailed description of application working
 
