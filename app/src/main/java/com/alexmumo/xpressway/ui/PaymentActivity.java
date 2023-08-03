@@ -22,7 +22,7 @@ import com.alexmumo.xpressway.daraja.model.AccessToken;
 import com.alexmumo.xpressway.daraja.model.LNMExpress;
 import com.alexmumo.xpressway.daraja.model.LNMResult;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
+
 
 
 
@@ -36,14 +36,15 @@ public class PaymentActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
-        amount = findViewById(R.id.amount);
 
+        amount = findViewById(R.id.amount);
         phone = findViewById(R.id.phone);
+
         pay = findViewById(R.id.pay_btn);
 
 
         Intent intent = getIntent();
-        String amountStr = intent.getStringExtra("amount");
+        String amountStr = amount.getText().toString().trim();
         amount.setText(amountStr);
 
         daraja = Daraja.with("kgfUVwVoALb45cnt6t1XmC7oQHHYaftK", "Ju041jMYxbs57OIi", new DarajaListener<AccessToken>() {
@@ -54,7 +55,6 @@ public class PaymentActivity extends AppCompatActivity{
 
             @Override
             public void onError(String error) {
-
 
             }
         });
@@ -67,7 +67,7 @@ public class PaymentActivity extends AppCompatActivity{
                 LNMExpress lnmExpress = new LNMExpress(
                         "174379",
                         "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919",
-                        "1",
+                        amountStr,
                         "254797642381",
                         "174379",
                         phoneNumber,
