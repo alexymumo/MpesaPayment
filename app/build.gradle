@@ -2,11 +2,20 @@ plugins {
     id 'com.android.application'
 }
 
+
+def localPropertiesFile = rootProject.file("local.properties")
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(localPropertiesFile))
+
 android {
     namespace 'com.alexmumo.xpressway'
     compileSdk 32
 
     defaultConfig {
+        buildConfigField("String", "CONSUMER_KEY",localProperties['CONSUMER_KEY'])
+        buildConfigField("String", "CONSUMER_SECRET",localProperties['CONSUMER_SECRET'])
+        //buildConfigField("String", "PASS_KEY", localProperties['PASS_KEY'])
+
         applicationId "com.alexmumo.xpressway"
         minSdk 19
         targetSdk 32
@@ -22,10 +31,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildTypes.each {
-        it.buildConfigField 'String', 'CONSUMER_KEY', DARAJA_CONSUMER_KEY
-        it.buildConfigField 'String', 'CONSUMER_SECRET', DARAJA_CONSUMER_SECRET
-    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

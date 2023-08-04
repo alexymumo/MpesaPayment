@@ -1,25 +1,22 @@
 package com.alexmumo.xpressway.ui;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
+import static com.alexmumo.xpressway.utils.Constants.CONSUMER_KEY;
+import static com.alexmumo.xpressway.utils.Constants.CONSUMER_SECRET;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.alexmumo.xpressway.R;
 import com.alexmumo.xpressway.daraja.Daraja;
 import com.alexmumo.xpressway.daraja.DarajaListener;
 import com.alexmumo.xpressway.daraja.model.AccessToken;
 import com.alexmumo.xpressway.daraja.model.LNMExpress;
 import com.alexmumo.xpressway.daraja.model.LNMResult;
 import com.alexmumo.xpressway.databinding.ActivityPaymentBinding;
-import com.google.android.material.textfield.TextInputEditText;
 
 
 public class PaymentActivity extends AppCompatActivity{
@@ -34,7 +31,7 @@ public class PaymentActivity extends AppCompatActivity{
         View view = binding.getRoot();
         setContentView(view);
 
-        daraja = Daraja.with("kgfUVwVoALb45cnt6t1XmC7oQHHYaftK", "Ju041jMYxbs57OIi", new DarajaListener<AccessToken>() {
+        daraja = Daraja.with(CONSUMER_KEY, CONSUMER_SECRET, new DarajaListener<AccessToken>() {
             @Override
             public void onResult(@NonNull AccessToken accessToken) {
                 //Toast.makeText(PaymentActivity.this, "TOKEN: " + accessToken.getAccess_token(), Toast.LENGTH_SHORT).show();
