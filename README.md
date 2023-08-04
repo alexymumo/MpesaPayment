@@ -13,9 +13,9 @@
 - Okhttp Logging interceptor - Logs HTTP request and response data
 - View Binding - Feature that makes it easier to write code that interacts with views
 
-## Screenshots
-
+  
 ## Demo
 - Detailed description of application working
+https://github.com/alexymumo/MpesaPayment/assets/56880898/8e4be8e7-3326-48f1-ba77-8b33da7a878b
 
 
