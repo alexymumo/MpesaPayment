@@ -15,7 +15,6 @@
 
   
 ## Demo
-- Detailed description of application working
 https://github.com/alexymumo/MpesaPayment/assets/56880898/8e4be8e7-3326-48f1-ba77-8b33da7a878b
 
 
