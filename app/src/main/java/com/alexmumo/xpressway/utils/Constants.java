@@ -7,10 +7,6 @@ public class Constants {
 
     public static final int WRITE_TIMEOUT = 60 * 1000;
 
-
-    // Safaricom Constants
-    //DARAJA_CONSUMER_KEY = "q6x3GFv7bkeo9YHEiSkPtP7USnBsRvLZ"
-    //DARAJA_CONSUMER_SECRET = "QKgMoTSxizkShC8s"
     public static final String CONSUMER_KEY = "q6x3GFv7bkeo9YHEiSkPtP7USnBsRvLZ";
     public static final String CONSUMER_SECRET = "QKgMoTSxizkShC8s";
     public static final String BASE_URL = "https://sandbox.safaricom.co.ke/";
@@ -19,6 +15,4 @@ public class Constants {
     public static final String TRANSACTION_TYPE = "CustomerPayBillOnline";
     public static final String PARTYB = "174379";
     public static final String CALLBACKURL = "https://mydomain.com/path";
-    public static final String STORAGE_PATH_UPLOADS = "numberplates/";
-    public static final String DATABASE_PATH_UPLOADS = "numberplates";
 }

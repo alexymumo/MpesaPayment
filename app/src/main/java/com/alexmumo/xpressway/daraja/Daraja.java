@@ -31,7 +31,6 @@ public class Daraja {
         this.BASE_URL = (env == Env.SANDBOX) ? URLs.SANDBOX_BASE_URL : URLs.PRODUCTION_BASE_URL;
     }
 
-    //TODO :: CHECK FOR INTERNET CONNECTION
     //Generate the Auth Token
     public static Daraja with(String consumerKey, String consumerSecret, DarajaListener<AccessToken> darajaListener) {
         return with(consumerKey, consumerSecret, Env.SANDBOX, darajaListener);
@@ -66,9 +65,6 @@ public class Daraja {
         });
     }
 
-    /**
-     * MPESAExpress - Formerly STKPush :: Pass the LNMPesa Object
-     */
     public void requestMPESAExpress(LNMExpress lnmExpress, final DarajaListener<LNMResult> listener) {
 
         if (accessToken == null) {
